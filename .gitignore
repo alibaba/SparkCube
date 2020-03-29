@@ -1,0 +1,17 @@
+*.iml
+*.swp
+*~
+.DS_Store
+.cache
+.classpath
+.idea/
+.idea_modules/
+.project
+.scala_dependencies
+.settings
+dependency-reduced-pom.xml
+scalastyle-on-compile.generated.xml
+scalastyle-output.xml
+scalastyle.txt
+spark-warehouse
+target/

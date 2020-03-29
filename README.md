@@ -20,6 +20,7 @@ mvn test
 
 There are several configs you should add to your Spark configuration.
 
+| config | value |
 | ---- | ---- |
 | spark.sql.extensions | com.alibaba.sparkcube.SparkCube |
 | spark.sql.cache.tab.display | true |

@@ -35,12 +35,10 @@ class SparkCubeCreatePage(parent: SparkCubeTab)
 
   override def render(request: HttpServletRequest): Seq[Node] = {
     val cachemanager = parent.sharedState.cubeManager
-    val caches = cachemanager.listAllCaches(sparkSession)
     val catalog = sparkSession.sessionState.catalog
     var tableAndViews = Seq[TableOrView]()
-    val dbs = catalog.listDatabases()
     var Index: Int = 0
-    for (db <- dbs) {
+    for (db <- useCacheDbs) {
       val tables = catalog.listTables(db)
       for(tableId <- tables) {
         val tableName = tableId.table

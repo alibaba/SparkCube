@@ -17,6 +17,7 @@
 
 package org.apache.spark.ui
 
+import java.io.FileNotFoundException
 import javax.servlet.http.HttpServletRequest
 
 import org.apache.hadoop.conf.Configuration
@@ -53,12 +54,21 @@ abstract class AbstractSparkCubePage(parent: SparkCubeTab, prefix: String)
   extends WebUIPage(prefix) with Logging {
   val sparkSession = SparkSession.builder().getOrCreate()
   val conf = new Configuration()
+  val useCacheDbs = sparkSession.sparkContext.conf
+    .get("spark.sql.cache.useDatabase", "default").split(",").toSeq
 
   def getFileSize(path: String): String = {
     val cachePath = new Path(path)
     val fs = cachePath.getFileSystem(conf)
+    var fileSize = 0L
     if (fs.exists(cachePath)) {
-      val fileSize = fs.getContentSummary(cachePath).getLength()
+      try {
+        fileSize = fs.getContentSummary(cachePath).getLength()
+      } catch {
+        case e : FileNotFoundException =>
+          logInfo("can't find file from" + cachePath)
+          "None"
+      }
       if (fileSize < 1024) {
         fileSize + " B"
       } else if (fileSize < 1024 * 1024) {

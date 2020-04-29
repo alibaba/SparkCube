@@ -228,11 +228,14 @@ class CubeManager extends Logging {
    */
   def listAllCaches(session: SparkSession): Seq[(TableIdentifier, CacheInfo)] = {
     val cCatalog = cubeCatalog(session)
-    session.sessionState.catalog.listDatabases().flatMap { db =>
-      cCatalog.listSparkCubes(db).map { catalogTable =>
-        (catalogTable.identifier, cCatalog.getCacheInfo(
-          TableIdentifier(catalogTable.identifier.table, Some(db))).get)
-      }
+    val useCacheDb = session.sparkContext.getConf.get("spark.sql.cache.useDatabase", "default")
+      .split(",").toSeq
+    useCacheDb.flatMap {
+      db =>
+        cCatalog.listSparkCubes(db).map { catalogTable =>
+          (catalogTable.identifier, cCatalog.getCacheInfo(
+            TableIdentifier(catalogTable.identifier.table, Some(db))).get)
+        }
     }
   }
 
@@ -527,10 +530,19 @@ class CubeManager extends Logging {
     val withDictPlan = buildGlobalDictionary(spark, viewName, SparkAgent.getLogicalPlan(cacheData))
     logInfo(s"Build cache for ${cacheInfo.getCacheName} with plan:\n$withDictPlan")
     // TODO use zorderPlan instead of withDictPlan
-    val cur = SparkAgent.getDataFrame(spark, withDictPlan)
+
+    var dataRow = SparkAgent.getDataFrame(spark, withDictPlan)
+    if (spark.sparkContext.getConf.getBoolean("spark.sql.cache.cacheByPartition", false)) {
+      if (storageInfo.partitionSpec.isDefined) {
+        val partitionList = storageInfo.partitionSpec.get.map(par => col(par))
+        dataRow = dataRow.repartition(partitionList: _*)
+      }
+    }
+    val cur = dataRow
       .write
       .format(storageInfo.provider)
       .mode(saveMode)
+
     val partitioned = storageInfo.partitionSpec.map(cur.partitionBy).getOrElse(cur)
     val bucketed = storageInfo.bucketSpec.map {
       bucketSpec =>

@@ -18,10 +18,11 @@
 package org.apache.spark.ui
 
 import java.io.FileNotFoundException
-
 import javax.servlet.http.HttpServletRequest
+
 import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.fs.Path
+
 import org.apache.spark.internal.Logging
 import org.apache.spark.sql.{CubeSharedState, SparkSession}
 import org.apache.spark.sql.execution.ui.SQLAppStatusStore

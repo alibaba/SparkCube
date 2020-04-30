@@ -459,7 +459,7 @@ object SparkCubeSource {
     holder.setInitParameter(ServerProperties.PROVIDER_CLASSNAMES,
         "com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider")
     holder.setInitParameter(ServerProperties.PROVIDER_PACKAGES,
-      "org.apache.spark.sql.execution.api")
+      "com.alibaba.sparkcube.execution.api")
     CacheRootFromServletContext.setCacheManager(jerseyContext, cacheManager)
     jerseyContext.addServlet(holder, "/*")
     jerseyContext

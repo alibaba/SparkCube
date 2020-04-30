@@ -185,7 +185,7 @@ class SparkCubePage(parent: SparkCubeTab)
     // scalastyle:off
       <script src={UIUtils.prependBaseUri(request, "/static/bootstrap.min.js")}></script>
       <script src={UIUtils.prependBaseUri(request,
-        "/static/sql/caching/spark-cube-page.js")}></script>
+        "/static/SparkCube/caching/spark-cube-page.js")}></script>
     // scalastyle:on
   }
 }

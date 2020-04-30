@@ -271,14 +271,14 @@ class SparkCubeDetailPage(parent: SparkCubeTab)
   private def generateLoadResources(request: HttpServletRequest): Seq[Node] = {
     // scalastyle:off
       <link rel="stylesheet" href={UIUtils.prependBaseUri(request,
-      "/static/contrib/bootstrap-toggle.min.css")} type="text/css"/>
+      "/static/SparkCube/contrib/bootstrap-toggle.min.css")} type="text/css"/>
       <link rel="stylesheet" href={UIUtils.prependBaseUri(request,
-        "/static/caching/spark-cube-page.css")} type="text/css"/>
+        "/static/SparkCube/caching/spark-cube-page.css")} type="text/css"/>
       <script src={UIUtils.prependBaseUri(request, "/static/contrib/bootstrap.min.js")}></script>
       <script src={UIUtils.prependBaseUri(request,
-        "/static/contrib/bootstrap-toggle.min.js")}></script>
+        "/static/SparkCube/contrib/bootstrap-toggle.min.js")}></script>
       <script src={UIUtils.prependBaseUri(request,
-        "/static/caching/spark-cube-detail-page.js")}></script>
+        "/static/SparkCube/caching/spark-cube-detail-page.js")}></script>
     // scalastyle:on
   }
 }

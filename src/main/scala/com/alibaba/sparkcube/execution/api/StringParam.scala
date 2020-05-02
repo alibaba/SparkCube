@@ -17,7 +17,15 @@
 
 package com.alibaba.sparkcube.execution.api
 
-class StringParam(var param: String = null) {
+class StringParam {
+
+  def this(param: String) {
+    this()
+    this.param = param
+  }
+
+  var param: String = null
+
   def getParam: String = this.param
 
   def setParam(param: String): Unit = {

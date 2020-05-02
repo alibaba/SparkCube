@@ -27,8 +27,11 @@ $(function() {
       $.ajax({
         url: url,
         type: "PUT",
+        contentType: "application/json",
+        dataType: "json",
         data: JSON.stringify(body),
         headers: {
+            "Accept": "application/json",
             "Content-Type": "application/json",
             "X-HTTP-Method-Override": "PUT" },
         success: function(response) {
@@ -71,7 +74,10 @@ function clearBuildHistory() {
   $.ajax({
     url: url,
     type: "PUT",
+    contentType: "application/json",
+    dataType: "json",
     headers: {
+      "Accept": "application/json",
       "Content-Type": "application/json",
       "X-HTTP-Method-Override": "PUT" },
       success: function(response) {
@@ -95,7 +101,10 @@ function cancelPeriodBuild() {
   $.ajax({
     url: url,
     type: "PUT",
+    contentType: "application/json",
+    dataType: "json",
     headers: {
+      "Accept": "application/json",
       "Content-Type": "application/json",
       "X-HTTP-Method-Override": "PUT" },
       success: function(response) {
@@ -119,8 +128,11 @@ function deleteCachePartition(pathToDelete) {
   $.ajax({
     url: url,
     type: "PUT",
+    contentType: "application/json",
+    dataType: "json",
     data: JSON.stringify({param: pathToDelete}),
     headers: {
+      "Accept": "application/json",
       "Content-Type": "application/json",
       "X-HTTP-Method-Override": "PUT" },
       success: function(response) {

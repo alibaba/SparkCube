@@ -61,8 +61,11 @@ function buildCache() {
     $.ajax({
       url: url,
       type: "PUT",
+      contentType: "application/json",
+      dataType: "json",
       data: JSON.stringify({param: JSON.stringify(buildInfo)}),
       headers: {
+        "Accept": "application/json",
         "Content-Type": "application/json",
         "X-HTTP-Method-Override": "PUT" },
       success: function(response) {
@@ -133,8 +136,11 @@ function periodBuildCache() {
   $.ajax({
     url: url,
     type: "PUT",
+    contentType: "application/json",
+    dataType: "json",
     data: JSON.stringify({param: JSON.stringify(periodBuildInfo)}),
     headers: {
+      "Accept": "application/json",
       "Content-Type": "application/json",
       "X-HTTP-Method-Override": "PUT" },
     success: function(response) {

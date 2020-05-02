@@ -21,15 +21,12 @@ import javax.servlet.ServletContext
 import javax.servlet.http.HttpServletRequest
 import javax.ws.rs._
 import javax.ws.rs.core.{Context, MediaType}
-
 import org.apache.hadoop.conf.Configuration
 import org.eclipse.jetty.server.handler.ContextHandler
 import org.eclipse.jetty.servlet.{ServletContextHandler, ServletHolder}
 import org.glassfish.jersey.server.ServerProperties
 import org.glassfish.jersey.servlet.ServletContainer
-
 import org.apache.spark.sql.{SaveMode, SparkAgent, SparkSession}
-
 import com.alibaba.sparkcube.CubeManager
 import com.alibaba.sparkcube.catalog.{CubeCacheInfo, RawCacheInfo}
 import com.alibaba.sparkcube.execution.{BuildHistory, PeriodBuildInfo}
@@ -457,9 +454,9 @@ object SparkCubeSource {
 //    val holder: ServletHolder = new ServletHolder(new ServletContainer(config))
     val holder: ServletHolder = new ServletHolder(classOf[ServletContainer])
     holder.setInitParameter(ServerProperties.PROVIDER_CLASSNAMES,
-        "com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider")
+        "org.codehaus.jackson.jaxrs.JacksonJaxbJsonProvider")
     holder.setInitParameter(ServerProperties.PROVIDER_PACKAGES,
-      "org.apache.spark.sql.execution.api")
+      "com.alibaba.sparkcube.execution.api")
     CacheRootFromServletContext.setCacheManager(jerseyContext, cacheManager)
     jerseyContext.addServlet(holder, "/*")
     jerseyContext

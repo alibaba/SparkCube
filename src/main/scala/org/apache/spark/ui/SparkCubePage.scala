@@ -183,9 +183,9 @@ class SparkCubePage(parent: SparkCubeTab)
 
   private def generateLoadResources(request: HttpServletRequest): Seq[Node] = {
     // scalastyle:off
-      <script src={UIUtils.prependBaseUri(request, "/static/bootstrap.min.js")}></script>
+      <script src={UIUtils.prependBaseUri(request, "/static_cube/contrib/bootstrap.min.js")}></script>
       <script src={UIUtils.prependBaseUri(request,
-        "/static/sql/caching/spark-cube-page.js")}></script>
+        "/static_cube/caching/spark-cube-page.js")}></script>
     // scalastyle:on
   }
 }

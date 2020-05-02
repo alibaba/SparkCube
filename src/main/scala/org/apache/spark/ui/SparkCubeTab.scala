@@ -40,7 +40,7 @@ class SparkCubeTab(
   attachPage(new SparkCubeBuildPage(this))
   attachPage(new SparkCubeCreatePage(this))
   parent.attachTab(this)
-  parent.addStaticHandler(SparkCubeTab.STATIC_RESOURCE_DIR, "/static")
+  parent.addStaticHandler(SparkCubeTab.STATIC_RESOURCE_DIR, "/static_cube")
   parent.addStaticHandler(SparkCubeTab.STATIC_IMG_DIR, "/img")
 }
 

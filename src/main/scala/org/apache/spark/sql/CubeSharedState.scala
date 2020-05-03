@@ -41,7 +41,7 @@ private[spark] class CubeSharedState(val session: SparkSession) extends Logging 
       case _ => new CubeInMemoryCatalog(session.sharedState.externalCatalog)
     }
 
-  if (session.sparkContext.getConf.getBoolean("spark.sql.cache.tab.display", false)) {
+  if (session.sparkContext.getConf.getBoolean("spark.sql.cache.tab.display", true)) {
     logInfo("Initializing SparkCube web UI")
     val statusStore = session.sharedState.statusStore
     session.sparkContext.ui.foreach(new SparkCubeTab(statusStore, _, this))

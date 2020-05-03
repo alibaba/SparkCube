@@ -274,7 +274,7 @@ class SparkCubeDetailPage(parent: SparkCubeTab)
       "/static/SparkCube/contrib/bootstrap-toggle.min.css")} type="text/css"/>
       <link rel="stylesheet" href={UIUtils.prependBaseUri(request,
         "/static/SparkCube/caching/spark-cube-page.css")} type="text/css"/>
-      <script src={UIUtils.prependBaseUri(request, "/static/contrib/bootstrap.min.js")}></script>
+      <script src={UIUtils.prependBaseUri(request, "/static/SparkCube/contrib/bootstrap.min.js")}></script>
       <script src={UIUtils.prependBaseUri(request,
         "/static/SparkCube/contrib/bootstrap-toggle.min.js")}></script>
       <script src={UIUtils.prependBaseUri(request,

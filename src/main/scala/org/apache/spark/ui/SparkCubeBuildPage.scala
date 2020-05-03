@@ -287,10 +287,10 @@ class SparkCubeBuildPage(parent: SparkCubeTab)
   private def generateLoadResources(request: HttpServletRequest): Seq[Node] = {
     // scalastyle:off
       <link rel="stylesheet" href={UIUtils.prependBaseUri(request,
-      "/static/SparkCube/caching/bootstrap-datetimepicker.min.css")} type="text/css"/>
-      <script src={UIUtils.prependBaseUri(request, "/static/contrib/bootstrap.min.js")}></script>
+      "/static/SparkCube/contrib/bootstrap-datetimepicker.min.css")} type="text/css"/>
+      <script src={UIUtils.prependBaseUri(request, "/static/SparkCube/contrib/bootstrap.min.js")}></script>
       <script src={UIUtils.prependBaseUri(request,
-        "/static/SparkCube/caching/bootstrap-datetimepicker.min.js")}></script>
+        "/static/SparkCube/contrib/bootstrap-datetimepicker.min.js")}></script>
       <script src={UIUtils.prependBaseUri(request,
         "/static/SparkCube/caching/spark-cube-build-page.js")}></script>
     // scalastyle:on

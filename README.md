@@ -24,6 +24,7 @@ There are several configs you should add to your Spark configuration.
 | ---- | ---- | ---- |
 | spark.sql.extensions | com.alibaba.sparkcube.SparkCube |  |
 | spark.sql.cache.tab.display | true | To show web UI in the certain application, typically Spark Thriftserver. |
+| spark.sql.cache.useDatabase | db1,db2,dbn | Different database names are separated by commas to store your view and cube|
 | spark.driver.extraClassPath |  /path/to/this/jar | For web UI resources. |
 
 With the configurations above set in your Spark thriftserver, you should be able to see "Cube Management" Tab from the UI of Spark Thriftserver after any `SELECT` command is run. Then you can create/delete/build cubes from this web page.

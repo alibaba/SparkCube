@@ -32,7 +32,7 @@ With the configurations above set in your Spark thriftserver, you should be able
 
 After you created appropriate cube, you can query the cube from any spark-sql client using Spark SQL. Note that the cube can be created against table or view, so you can join tables as view to create a complex cube.
 
-If you want a more detailed tutorial, please refer to
+If you want a more detailed tutorial for cache create/build/drop etc, please refer to
 https://help.aliyun.com/document_detail/149293.html?spm=a2c4g.11174283.6.1095.759b3d79FA5fHu
 
 ## Thanks

@@ -259,8 +259,8 @@ class CubeHiveExternalCatalog(
 }
 
 object CubeHiveExternalCatalog {
-  import org.apache.spark.sql.hive.HiveExternalCatalog.SPARK_SQL_PREFIX
 
+  val SPARK_SQL_PREFIX = "spark.cube."
   val CACHED = SPARK_SQL_PREFIX + "cached"
   val CACHED_INFO = SPARK_SQL_PREFIX + "cached.info"
   val RAW_CACHE_PREFIX = CACHED_INFO + ".raw"

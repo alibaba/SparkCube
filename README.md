@@ -33,4 +33,18 @@ With the configurations above set in your Spark thriftserver, you should be able
 After you created appropriate cube, you can query the cube from any spark-sql client using Spark SQL. Note that the cube can be created against table or view, so you can join tables as view to create a complex cube.
 
 If you want a more detailed tutorial for cube create/build/drop etc, please refer to
-https://help.aliyun.com/document_detail/149293.html?spm=a2c4g.11174283.6.1095.759b3d79FA5fHu
+https://help.aliyun.com/document_detail/149293.html
+
+## Learning materials
+
+https://yq.aliyun.com/articles/703046
+https://yq.aliyun.com/articles/703154
+https://yq.aliyun.com/articles/713746
+https://yq.aliyun.com/articles/725413
+https://www.slidestalk.com/AliSpark/SparkRelationalCache78971
+https://www.slidestalk.com/AliSpark/SparkRelationalCache2019_57927
+
+(In English)
+https://community.alibabacloud.com/blog/rewriting-the-execution-plan-in-the-emr-spark-relational-cache_595267
+https://www.alibabacloud.com/blog/use-emr-spark-relational-cache-to-synchronize-data-across-clusters_595301
+https://www.alibabacloud.com/blog/using-data-preorganization-for-faster-queries-in-spark-on-emr_595599

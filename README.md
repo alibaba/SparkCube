@@ -38,13 +38,21 @@ https://help.aliyun.com/document_detail/149293.html
 ## Learning materials
 
 https://yq.aliyun.com/articles/703046
+
 https://yq.aliyun.com/articles/703154
+
 https://yq.aliyun.com/articles/713746
+
 https://yq.aliyun.com/articles/725413
+
 https://www.slidestalk.com/AliSpark/SparkRelationalCache78971
+
 https://www.slidestalk.com/AliSpark/SparkRelationalCache2019_57927
 
 (In English)
+
 https://community.alibabacloud.com/blog/rewriting-the-execution-plan-in-the-emr-spark-relational-cache_595267
+
 https://www.alibabacloud.com/blog/use-emr-spark-relational-cache-to-synchronize-data-across-clusters_595301
+
 https://www.alibabacloud.com/blog/using-data-preorganization-for-faster-queries-in-spark-on-emr_595599

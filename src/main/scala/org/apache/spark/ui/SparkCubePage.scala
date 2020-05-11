@@ -90,7 +90,7 @@ class SparkCubePage(parent: SparkCubeTab)
         cachedDataInfo = cachedDataInfo :+ tempRelation
       }
     }
-    val content = generateLoadResources(request) ++ cacheTable(cachedDataInfo) ++
+    var content = generateLoadResources(request) ++ cacheTable(cachedDataInfo) ++
       addCreateButtonHtml(request) :+
       <div id="actionModal" class="modal hide" tabindex="-1" role="dialog"
            aria-labelledby="actionTitle" aria-hidden="true">
@@ -183,7 +183,7 @@ class SparkCubePage(parent: SparkCubeTab)
 
   private def generateLoadResources(request: HttpServletRequest): Seq[Node] = {
     // scalastyle:off
-      <script src={UIUtils.prependBaseUri(request, "/static/bootstrap.min.js")}></script>
+      <script src={UIUtils.prependBaseUri(request, "/static/SparkCube/contrib/bootstrap.min.js")}></script>
       <script src={UIUtils.prependBaseUri(request,
         "/static/SparkCube/caching/spark-cube-page.js")}></script>
     // scalastyle:on

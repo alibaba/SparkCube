@@ -18,7 +18,7 @@
 package com.alibaba.sparkcube.optimizer
 
 import org.apache.spark.SparkFunSuite
-import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.{SparkAgent, SparkSession}
 import org.apache.spark.sql.catalyst.expressions.BoundReference
 import org.apache.spark.sql.catalyst.expressions.aggregate.{Count, ReCountDistinct, Sum}
 import org.apache.spark.sql.types._
@@ -34,6 +34,11 @@ class GenPlanFromCacheSuite extends SparkFunSuite {
     assert(op.getDataType("Max", ByteType) == ByteType)
     assert(op.getDataType("pre_count_distinct", BooleanType) == BinaryType)
     assert(op.getDataType("AVG", LongType) == DoubleType)
+    assert(op.getDataType("Sum", IntegerType) == LongType)
+    assert(op.getDataType("Sum", ByteType) == LongType)
+    assert(op.getDataType(
+      "Sum", SparkAgent.createDecimal(10, 2)) == SparkAgent.createDecimal(20, 2))
+    assert(op.getDataType("Sum", FloatType) == DoubleType)
   }
 
   test("test buildAggrFunc") {

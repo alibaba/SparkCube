@@ -21,6 +21,7 @@ import org.apache.spark.sql.catalyst.TableIdentifier
 import org.apache.spark.sql.catalyst.expressions.Expression
 import org.apache.spark.sql.catalyst.plans.logical.LogicalPlan
 import org.apache.spark.sql.internal.SQLConf
+import org.apache.spark.sql.types.{DataType, DecimalType, IntegralType}
 import org.apache.spark.ui.UIUtils
 
 /**
@@ -54,6 +55,21 @@ object SparkAgent {
 
   def analysisException(cause: String): AnalysisException = {
     new AnalysisException(cause)
+  }
+
+  def createDecimal(precision: Int, scale: Int): DecimalType = {
+    DecimalType.bounded(precision, scale)
+  }
+
+  def isIntegral(dt: DataType): Boolean = {
+    dt.isInstanceOf[IntegralType]
+  }
+
+  object DecimalResolve {
+    def unapply(dt: DecimalType): Option[(Int, Int)] = dt match {
+      case DecimalType.Fixed(precision, scale) => Some((precision, scale))
+      case _ => None
+    }
   }
 
 }

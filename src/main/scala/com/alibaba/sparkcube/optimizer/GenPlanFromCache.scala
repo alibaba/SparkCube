@@ -538,7 +538,11 @@ case class GenPlanFromCache(session: SparkSession) extends Rule[LogicalPlan]
       case ("count", _) => LongType
       case (fn, _) if Seq("pre_count_distinct", "pre_approx_count_distinct").contains(fn) =>
         BinaryType
-      case (fn, _) if Seq("min", "max", "sum").contains(fn) => arg
+      case (fn, _) if Seq("min", "max").contains(fn) => arg
+      case ("sum", SparkAgent.DecimalResolve(precision, scale)) =>
+        SparkAgent.createDecimal(precision + 10, scale)
+      case ("sum", dt) if SparkAgent.isIntegral(dt) => LongType
+      case ("sum", _) => DoubleType
       case ("avg", Fixed(p, s)) =>
         // DecimalType.bounded
         DecimalType(min(p + 4, DecimalType.MAX_PRECISION), min(s + 4, DecimalType.MAX_SCALE))

@@ -1,4 +1,4 @@
-# SparkCube
+# SparkCube ![](https://api.travis-ci.org/alibaba/SparkCube.svg?branch=master)
 
 SparkCube is an open-source project for extremely fast OLAP data analysis. SparkCube is an extension of [Apache Spark](http://spark.apache.org).
 

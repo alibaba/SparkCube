@@ -37,6 +37,14 @@ https://help.aliyun.com/document_detail/149293.html
 
 ## Learning materials
 
+(Slides)
+
+https://www.slidestalk.com/AliSpark/SparkRelationalCache78971
+
+https://www.slidestalk.com/AliSpark/SparkRelationalCache2019_57927
+
+(Blogs)
+
 https://yq.aliyun.com/articles/703046
 
 https://yq.aliyun.com/articles/703154
@@ -45,11 +53,7 @@ https://yq.aliyun.com/articles/713746
 
 https://yq.aliyun.com/articles/725413
 
-https://www.slidestalk.com/AliSpark/SparkRelationalCache78971
-
-https://www.slidestalk.com/AliSpark/SparkRelationalCache2019_57927
-
-(In English)
+(Blogs In English)
 
 https://community.alibabacloud.com/blog/rewriting-the-execution-plan-in-the-emr-spark-relational-cache_595267
 

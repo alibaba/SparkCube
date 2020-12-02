@@ -110,7 +110,7 @@
     </dependencies>
 
     <properties>
-        <jetty.version>9.4.27.v20200227</jetty.version>
+        <jetty.version>9.4.35.v20201120</jetty.version>
         <spark.version>2.4.4</spark.version>
     </properties>
 
